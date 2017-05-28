@@ -59,7 +59,7 @@
                             <asp:TextBox ID="TextPw" runat="server" Width="131px" Height="22px" style="margin-top: 5px"></asp:TextBox>
 						</p>
 				<p>
-                    <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" style="width: 78px; " Text="提交评论" />
+                    <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" style="width: 78px; height: 21px;" Text="提交评论" />
                 </p>
 				</ul>
 			</div>
