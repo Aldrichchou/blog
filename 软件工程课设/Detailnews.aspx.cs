@@ -31,9 +31,13 @@ public partial class Detailnews : System.Web.UI.Page
                 subject  =  dbObj.ExecScalar(Sqlsort);
                 Sqlsort =
                 "SELECT BlogID FROM [tb_Article] Where ArticleID = '" + Newskey + "'";
-                blogID = int.Parse(dbObj.ExecScalar(Sqlsort)); 
-
-            }
+                blogID = int.Parse(dbObj.ExecScalar(Sqlsort));
+                string img;
+                Sqlsort =
+                "SELECT img FROM [tb_Article] Where ArticleID = '" + Newskey + "'";
+                img = dbObj.ExecScalar(Sqlsort);
+                 ImgArticle.ImageUrl = "~/ArticleImg/" + img;
+        }
             catch (Exception ex)
             {
                 Label1.Text = ex.Message;
@@ -45,8 +49,7 @@ public partial class Detailnews : System.Web.UI.Page
     {
         //    if (!IsPostBack)
         //   {
-        Label1.Text = subject;
-        string user_name = TextUser.Text;
+            string user_name = TextUser.Text;
             string user_pw = TextPw.Text;
             string reviewContent = TextReview.Text;
             int visitID;

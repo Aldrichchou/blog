@@ -16,14 +16,6 @@ public partial class HomePage : System.Web.UI.Page
     /// </summary>
     /// <param name="sender"></param>
     /// <param name="e"></param>
-    protected void selectedNews(object sender, EventArgs e)
-    {
-        string news_id;
-        news_id  = "Detailnews.aspx?name=" 
-            + GridView1.SelectedRow.Cells[1].Text;
-        //获取当前行值某列的值
-        Response.Redirect(news_id);
-    }
     protected void searchNews(object sender, ImageClickEventArgs e)
     {
         //  if (!IsPostBack)
@@ -52,5 +44,14 @@ public partial class HomePage : System.Web.UI.Page
     protected void ButtonClick_manage(object sender, ImageClickEventArgs e)
     {
         Response.Redirect("ManageLogin.aspx", false);
+    }
+
+    protected void sic(object sender, EventArgs e)
+    {
+        string news_id;
+        news_id = "Detailnews.aspx?name="
+            + GridView1.SelectedRow.Cells[1].Text;
+        //获取当前行值某列的值
+        Response.Redirect(news_id);
     }
 }

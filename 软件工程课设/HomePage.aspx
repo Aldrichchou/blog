@@ -6,6 +6,14 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>欢迎来到博客世界</title>
+    <style type="text/css">
+        .auto-style1 {
+            margin-left: 263px;
+        }
+        .auto-style2 {
+            margin-left: 320px;
+        }
+    </style>
 </head> 
 <body style="color:#ff0000" background="img/121.jpg">  
     <form id="form1" runat="server">
@@ -19,16 +27,16 @@
 </div>
 
 <div id="section">
-<h1>最新博客</h1>
+<h1 class="auto-style2">最新博客</h1>
 <p>
-    <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CC9966" BorderStyle="None" BorderWidth="1px" CellPadding="4" DataKeyNames="ArticleID" DataSourceID="SqlDataSource2" OnSelectedIndexChanged="selectedNews">
+    <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CC9966" BorderStyle="None" BorderWidth="1px" CellPadding="4" DataKeyNames="ArticleID" DataSourceID="SqlDataSource2" OnSelectedIndexChanged="sic" AllowSorting="True" CssClass="auto-style1">
         <Columns>
-            <asp:BoundField DataField="ArticleID" HeaderText="ArticleID" ReadOnly="True" SortExpression="ArticleID" InsertVisible="False" />
-            <asp:BoundField DataField="Author" HeaderText="Author" SortExpression="Author" />
-            <asp:BoundField DataField="Subject" HeaderText="Subject" SortExpression="Subject" />
-            <asp:BoundField DataField="Content" HeaderText="Content" SortExpression="Content" />
-            <asp:BoundField DataField="BlogID" HeaderText="BlogID" SortExpression="BlogID" />
-            <asp:BoundField DataField="Time" HeaderText="Time" SortExpression="Time" />
+            <asp:CommandField ShowSelectButton="True" />
+            <asp:BoundField DataField="ArticleID" HeaderText="文章编号" ReadOnly="True" SortExpression="ArticleID" InsertVisible="False" />
+            <asp:BoundField DataField="Author" HeaderText="文章作者" SortExpression="Author" />
+            <asp:BoundField DataField="Subject" HeaderText="文章标题" SortExpression="Subject" />
+            <asp:BoundField DataField="BlogID" HeaderText="博客编号" SortExpression="BlogID" />
+            <asp:BoundField DataField="Time" HeaderText="发布时间" SortExpression="Time" />
         </Columns>
         <FooterStyle BackColor="#FFFFCC" ForeColor="#330099" />
         <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="#FFFFCC" />
@@ -42,7 +50,7 @@
     </asp:GridView>
     <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:webLoginconn %>" SelectCommand="SELECT * FROM [tb_Article]"></asp:SqlDataSource>
 </p>
-<div>
+<div position:absolute;bottom:0;overflow:hidden;>
 
     <asp:ImageButton ID="ImageButton2" runat="server" Height="40px" Width="73px" BackColor="Yellow" ImageUrl="~/img/用户管理.png" OnClick="ButtonClick_manage" />
 
@@ -51,7 +59,7 @@
 </div>
 </div>
 
-<div id="footer">
+<div id="footer" >
 Copyright 2017/5/21   周哲颖/陈浩楠/张伟    计算机143班144班
 </div>
 

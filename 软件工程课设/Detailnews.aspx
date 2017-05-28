@@ -5,17 +5,52 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>浙江农林大学信息工程学院欢迎你</title>
+    <title>欢迎来到博客世界</title>
     <style type="text/css">
         .auto-style1 {
             position: relative;
-            left: 0px;
-            top: 0px;
+            left: 371px;
+            top: 23px;
 
         }
-    </style>
+        .auto-style2 {
+            margin-left: 360px;
+        }
+        .auto-style4 {
+            margin-left: 440px;
+        }
+        .auto-style5 {
+            margin-left: 400px;
+            width: 382px;
+        }
+        .auto-style7 {
+            margin-left: 400px;
+            width: 382px;
+            height: 25px;
+        }
+        .auto-style8 {
+            margin-left: 394px;
+            width: 382px;
+            height: 25px;
+        }
+        .auto-style9 {
+            margin-left: 441px;
+        }
+        .auto-style10 {
+            margin-top: 61px;
+        }
+        .auto-style12 {
+            width: 1233px;
+        }
+        .auto-style13 {
+            margin-left: 26px;
+        }
+        .auto-style14 {
+            margin-left: 600px;
+        }
+        </style>
 </head>
-<body style="color:#ff0000" background="/img/201392515417.jpg">
+<body align="center" style="color:#ff0000" background="/img/详情.gif">
     <form id="form1" runat="server">
     <div id="page">
 		<div id="header">
@@ -37,36 +72,37 @@
 		</div>
 		<div id="contents">
 			<div id="about">
-				<div class="frame1">
-					<img src="\img\2345截图20170520093454.png" alt="Img"/>
+				<div class="auto-style10" style="center">
+					&nbsp;<asp:Image ID="ImgArticle" runat="server" Height="187px" Width="430px" CssClass="auto-style9" ImageUrl="~/ArticleImg/何江演讲截图.png" />
 				</div>
-               	<p><h4>新闻详情</h4>
-                    <asp:Label ID="Label1" runat="server" Font-Size="Large" OnLoad="page_Load" Text="我在这里" BackColor="White"></asp:Label>
+               	<h4 align="center" class="auto-style12">博客详情</h4>
+                <p align="center">
+                    <asp:Label ID="Label1" runat="server" Font-Size="Large" OnLoad="page_Load"  BackColor="White" Width="35%">&nbsp;</asp:Label>
                 </p>
 				<ul>
-					<li>
-						<h4>请自由发表评论</h4>
+					<h4 class="auto-style2">请自由发表评论</h4>
 						<p>
 							<asp:TextBox ID="TextReview" runat="server" Width="267px" Height="126px" CssClass="auto-style1"></asp:TextBox>
 						</p>
-                        <p>
+                        <p class="auto-style5">
+                            &nbsp;</p>
+                        <div class="auto-style7"  style="text-align:right">
                             <asp:Label ID="Label2" runat="server" Text="用户名"></asp:Label>
-                            <asp:TextBox ID="TextUser" runat="server" Width="122px" Height="19px"></asp:TextBox>
-						</p>
-					</li>
-						<p>
-							<asp:Label ID="Label3" runat="server" Text="密  码"></asp:Label>
-                            <asp:TextBox ID="TextPw" runat="server" Width="131px" Height="22px" style="margin-top: 5px"></asp:TextBox>
-						</p>
-				<p>
-                    <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" style="width: 78px; height: 21px;" Text="提交评论" />
-                </p>
+                            <asp:TextBox ID="TextUser" runat="server" Width="181px" Height="19px"></asp:TextBox> </div>
+                    <div class="auto-style8"  style="text-align:right">
+                        <asp:Label ID="Label3" runat="server" Text="密  码"></asp:Label>
+                        <asp:TextBox ID="TextPw" runat="server" Width="174px" Height="22px" ></asp:TextBox> 
+                    </div>
+                   	<p class="auto-style14">
+                    <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="提交评论" CssClass="auto-style13" Width="119px" />
+                        &nbsp;</p>
 				</ul>
 			</div>
 		</div>
-		<div id="footer">
-			<asp:TextBox ID="TextException" runat="server" Width="298px"></asp:TextBox>
+		<div id="footer" class="auto-style4">
 			<span class="shadow"></span>
+		
+			<asp:TextBox ID="TextException" runat="server" Width="298px"></asp:TextBox>
 		
 	</div>
 	</div>
