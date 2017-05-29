@@ -78,17 +78,17 @@ public partial class Detailnews : System.Web.UI.Page
                     string SqlInsert =
                    "INSERT INTO [tb_Revert] VALUES('" + lastReviewID + "','" + subject + "','" + reviewContent + "','" + Newskey + "','" + blogID + "','" + hostip + "','" + visitID + "','" + user_name + "','" + strYM + "')";
                     dbObj.ExecNonQuery(SqlInsert);
-                    TextException.Text = "成功添加评论！";   
+                Response.Write("<script>alert('成功添加评论!');</script>");
             }
             else
                 {
-                  TextException.Text = "失败了！";
-                }
+                Response.Write("<script>alert('需要填写正确的密码和用户名!');</script>");
+            }
             }
             catch (Exception ex)
             {
-                TextException.Text = ex.Message;
-            }
+            Response.Write("<script>alert('ex.Message');</script>");
+        }
  //       }
     }
 }

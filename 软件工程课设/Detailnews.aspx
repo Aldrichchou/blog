@@ -16,9 +16,6 @@
         .auto-style2 {
             margin-left: 360px;
         }
-        .auto-style4 {
-            margin-left: 440px;
-        }
         .auto-style5 {
             margin-left: 400px;
             width: 382px;
@@ -54,7 +51,7 @@
     <form id="form1" runat="server">
     <div id="page">
 		<div id="header">
-            <a href="index.html" id="logo"><img src="\img\1D43DDCE017FF2EBD08672101B6_E1A04F29_1D30E.jpg" height="100" width="100" alt="LOGO"></a>
+            <a href="index.html" id="logo"><img src="\img\33.jpg" height="100" width="100" alt="LOGO"></a>
 			<div class="box">				
 				<ul id="navigation">
 					<li>
@@ -99,12 +96,6 @@
 				</ul>
 			</div>
 		</div>
-		<div id="footer" class="auto-style4">
-			<span class="shadow"></span>
-		
-			<asp:TextBox ID="TextException" runat="server" Width="298px"></asp:TextBox>
-		
-	</div>
 	</div>
         </form>
     </body>
