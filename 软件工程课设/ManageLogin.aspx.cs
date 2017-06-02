@@ -26,12 +26,13 @@ public partial class ManageLogin : System.Web.UI.Page
              }
             else
             {
-                Tip.Text = "密码或名称错误，请重输！";
+                Response.Write("<script>alert('需要填写正确的密码和用户名!');</script>");
+
             }
         }
         catch (Exception ex)
        {
-           Tip.Text = ex.Message;
-       }
+            Response.Write("<script>alert('执行失败！!');</script>");
+        }
     }
 }

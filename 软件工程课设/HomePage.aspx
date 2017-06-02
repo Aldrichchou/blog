@@ -13,9 +13,15 @@
         .auto-style2 {
             margin-left: 320px;
         }
+        .auto-style3 {
+            margin-left: 80px;
+        }
+        .auto-style4 {
+            margin-left: 40px;
+        }
     </style>
 </head> 
-<body style="color:#ff0000" background="img/121.jpg">  
+<body style="background-image: url(../img/121.jpg); background-attachment: fixed; background-repeat:no-repeat;MARGIN:auto;background-position-x:center" > 
     <form id="form1" runat="server">
     <div id="header">
 <h1 align="center">THE BLOG</h1>
@@ -29,6 +35,7 @@
 <div id="section">
 <h1 class="auto-style2">最新博客</h1>
 <p>
+    &nbsp;&nbsp;&nbsp;
     <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CC9966" BorderStyle="None" BorderWidth="1px" CellPadding="4" DataKeyNames="ArticleID" DataSourceID="SqlDataSource2" OnSelectedIndexChanged="sic" AllowSorting="True" CssClass="auto-style1">
         <Columns>
             <asp:CommandField ShowSelectButton="True" />
@@ -48,19 +55,25 @@
         <SortedDescendingCellStyle BackColor="#F6F0C0" />
         <SortedDescendingHeaderStyle BackColor="#7E0000" />
     </asp:GridView>
+    &nbsp;&nbsp;&nbsp;
     <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:webLoginconn %>" SelectCommand="SELECT * FROM [tb_Article]"></asp:SqlDataSource>
 </p>
-<div position:absolute;bottom:0;overflow:hidden;>
+<div position:absolute;bottom:0;overflow:hidden; class="auto-style3">
 
     <asp:ImageButton ID="ImageButton2" runat="server" Height="40px" Width="73px" BackColor="Yellow" ImageUrl="~/img/用户管理.png" OnClick="ButtonClick_manage" />
 
     <asp:Label ID="Label1" runat="server" BorderColor="#FF3300" BorderStyle="Solid" ForeColor="#663300" Text="后台管理"></asp:Label>
 
+    <asp:ImageButton ID="ImageResign" runat="server" Height="40px" Width="73px" ImageUrl="~/img/注册登录.png" OnClick="UserLogin_Click" />
+    <asp:Label ID="Label2" runat="server" BorderColor="#FF3300" BorderStyle="Solid" ForeColor="#663300" Text="注册登录"></asp:Label>
+
 </div>
 </div>
 
 <div id="footer" >
+    <p class="auto-style4">
 Copyright 2017/5/21   周哲颖/陈浩楠/张伟    计算机143班144班
+</p>
 </div>
 
 </form>

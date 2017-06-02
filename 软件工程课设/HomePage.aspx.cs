@@ -11,11 +11,23 @@ using System.Configuration;
 public partial class HomePage : System.Web.UI.Page
 {
     DBClass dbObj = new DBClass();
-    /// <summary>   
-    /// 起传输点击对应行内容的作用
-    /// </summary>
-    /// <param name="sender"></param>
-    /// <param name="e"></param>
+    string username;
+    //页面事件触发
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        if (!IsPostBack)
+        {
+            Application["Name"]="";
+            Response.Write("<script>alert('欢迎你!');</script>");
+            return;
+        }
+        if (Application["Name"].ToString() != "")
+        {
+            username = Application["Name"].ToString();
+            Response.Write("<script>alert('欢迎你!" + username + "');</script>");
+        }
+  
+    }
     protected void searchNews(object sender, ImageClickEventArgs e)
     {
         //  if (!IsPostBack)
@@ -54,4 +66,10 @@ public partial class HomePage : System.Web.UI.Page
         //获取当前行值某列的值
         Response.Redirect(news_id);
     }
+
+     protected void UserLogin_Click(object sender, ImageClickEventArgs e)
+    {
+        Response.Redirect("UserLogin.aspx", false);
+    }
+
 }
