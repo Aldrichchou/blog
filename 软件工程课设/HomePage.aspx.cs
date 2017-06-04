@@ -13,26 +13,26 @@ public partial class HomePage : System.Web.UI.Page
 {
     DBClass dbObj = new DBClass();
     string username = "";
+    /*
+     * 执行先后顺序为init-》load;
+     */ 
+    protected void Page_Init()
+    {
+        Application["Name"] = "";
+        Response.Write("<script>alert('欢迎你!');</script>");
+    }
     //页面事件触发
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (Global.j == 0)
-        {
-            Global.j++;
-            Application["Name"] = "";
-            Response.Write("<script>alert('欢迎你!');</script>");
-        }
-        if (Application["Name"].ToString() != "")
+         if (Application["Name"].ToString() != "")
         {
             username = Application["Name"].ToString();
-            //Response.Write("<script>alert('欢迎你!" + username + "');</script>");
+            Response.Write("<script>alert('欢迎你!" + username + "');</script>");
         }
   
     }
     protected void searchNews(object sender, ImageClickEventArgs e)
     {
-        //  if (!IsPostBack)
-       // {
             try
             {
                 string Newskey = Textkey.Text;
@@ -51,7 +51,6 @@ public partial class HomePage : System.Web.UI.Page
             {
                 Textkey.Text = ex.Message;
             }
-      //  }
     }
 
     protected void ButtonClick_manage(object sender, ImageClickEventArgs e)
