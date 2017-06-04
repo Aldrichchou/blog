@@ -7,24 +7,25 @@ using System.Web.UI.WebControls;
 using System.Web.Configuration;
 using System.Data.SqlClient;
 using System.Configuration;
+using myGlobalSpace;
 
 public partial class HomePage : System.Web.UI.Page
 {
     DBClass dbObj = new DBClass();
-    string username;
+    string username = "";
     //页面事件触发
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (!IsPostBack)
+        if (Global.j == 0)
         {
-            Application["Name"]="";
+            Global.j++;
+            Application["Name"] = "";
             Response.Write("<script>alert('欢迎你!');</script>");
-            return;
         }
         if (Application["Name"].ToString() != "")
         {
             username = Application["Name"].ToString();
-            Response.Write("<script>alert('欢迎你!" + username + "');</script>");
+            //Response.Write("<script>alert('欢迎你!" + username + "');</script>");
         }
   
     }

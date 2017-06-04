@@ -11,7 +11,7 @@
             margin-left: 263px;
         }
         .auto-style2 {
-            margin-left: 320px;
+            margin-left: 520px;
         }
         .auto-style3 {
             margin-left: 80px;

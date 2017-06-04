@@ -36,7 +36,7 @@
          ImageUrl="~/img/45编辑管理箱.png" CssClass="auto-style2" Height="58px" Width="57px" OnClick="newsEdit"
      />
     
-     <asp:Label ID="Label2" runat="server" Text="新闻管理"></asp:Label>
+     <asp:Label ID="Label2" runat="server" Text="博客管理"></asp:Label>
     
 </div>
  <div style="text-align: center;">

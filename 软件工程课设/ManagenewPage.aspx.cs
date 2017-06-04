@@ -15,7 +15,7 @@ public partial class ManagenewPage : System.Web.UI.Page
             author = Request.QueryString["name"].ToString();
             if (!IsPostBack)
             {
-                Response.Write("<script>alert('欢迎你!');</script>");
+                Response.Write("<script>alert('欢迎你!"+author+"');</script>");
             }
             }
 
