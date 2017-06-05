@@ -17,7 +17,7 @@ public partial class ManagenewPage : System.Web.UI.Page
             {
                 Response.Write("<script>alert('欢迎你!"+author+"');</script>");
             }
-            }
+         }
 
     }
 

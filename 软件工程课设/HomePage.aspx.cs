@@ -76,4 +76,19 @@ public partial class HomePage : System.Web.UI.Page
         Response.Redirect("UserLogin.aspx", false);
     }
 
+    protected void Blog_Manage(object sender, ImageClickEventArgs e)
+    {
+        if (username == "")
+        {
+            Response.Redirect("UserLogin.aspx", false);
+        }
+        else
+        {
+            string news_id;
+            news_id = "BlogManage.aspx?name="
+                + username;
+            //获取当前行值某列的值
+            Response.Redirect(news_id);
+        }
+    }
 }

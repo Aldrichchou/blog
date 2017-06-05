@@ -70,7 +70,7 @@
     <asp:ImageButton ID="ImageResign" runat="server" Height="40px" Width="73px" ImageUrl="~/img/注册登录.png" OnClick="UserLogin_Click" />
     <asp:Label ID="Label2" runat="server" BorderColor="#FF3300" BorderStyle="Solid" ForeColor="#663300" Text="注册登录"></asp:Label>
 
-    <asp:ImageButton ID="ImageButton3" runat="server" Height="40px" Width="73px" />
+    <asp:ImageButton ID="ImageBlog" runat="server" Height="40px" Width="73px" ImageUrl="~/img/博客.png" OnClick="Blog_Manage" />
     <asp:Label ID="Label3" runat="server" BorderColor="#FF3300" BorderStyle="Solid" ForeColor="#663300" Text="博客"></asp:Label>
 
 </div>
