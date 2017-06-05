@@ -84,11 +84,9 @@ public partial class HomePage : System.Web.UI.Page
         }
         else
         {
-            string news_id;
-            news_id = "BlogManage.aspx?name="
-                + username;
+            Session["UserName"] = username;
             //获取当前行值某列的值
-            Response.Redirect(news_id);
+            Response.Redirect("BlogManage.aspx",false);
         }
     }
 }

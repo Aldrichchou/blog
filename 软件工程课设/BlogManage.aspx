@@ -7,9 +7,18 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>欢迎来到博客世界</title>
     <style type="text/css">
-        .auto-style1 {
+        .auto-style1
+       {
             margin-left: 80px;
         }
+          .listover150
+      {
+          width:150px;
+          text-align:left;
+          overflow:hidden;
+          text-overflow:ellipsis;//超长设置省略号
+          white-space:nowrap;
+      }
         </style>
 </head>
 <body style="background-image: url(../img/写博客.jpg); background-attachment: fixed; background-repeat:no-repeat;MARGIN:auto;background-position-x:center" > 
@@ -26,7 +35,7 @@
 						<a href="ManageLogin.aspx">后台登录</a>
 					</li>
 					<li>
-						<a href="ManagePage.aspx">返回上一页</a>
+						<a href="HomePage.aspx">返回上一页</a>
 					</li>
 				</ul>
 			</div>
@@ -35,18 +44,26 @@
           <div id="about">
 				<div class="frame1">
 				
-                    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" Height="165px" Width="550px">
+                    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource3" Height="139px" Width="1261px" BackColor="White" BorderColor="#CC9966" BorderStyle="None" BorderWidth="1px" CellPadding="4" OnRowDataBound="gv_showReport_RowDataBound">
                         <Columns>
-                            <asp:BoundField DataField="Subject" HeaderText="Subject" SortExpression="Subject" />
-                            <asp:BoundField DataField="Content" HeaderText="Content" SortExpression="Content" />
-                            <asp:BoundField DataField="Class" HeaderText="Class" SortExpression="Class" />
-                            <asp:BoundField DataField="img" HeaderText="img" SortExpression="img" />
-                            <asp:BoundField DataField="Time" HeaderText="Time" SortExpression="Time" />
+<asp:BoundField DataField="Subject" HeaderText="你的文章标题" SortExpression="Subject"></asp:BoundField>
+<asp:BoundField DataField="Content" HeaderText="你的文章内容" SortExpression="Content"></asp:BoundField>
+                            <asp:BoundField DataField="Class" HeaderText="你的文章类别" SortExpression="Class" />
+                            <asp:BoundField DataField="Time" HeaderText="你的发布时间" SortExpression="Time" />
                         </Columns>
+                        <FooterStyle BackColor="#FFFFCC" ForeColor="#330099" />
+                        <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="#FFFFCC" />
+                        <PagerStyle BackColor="#FFFFCC" ForeColor="#330099" HorizontalAlign="Center" />
+                        <RowStyle BackColor="White" ForeColor="#330099" />
+                        <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="#663399" />
+                        <SortedAscendingCellStyle BackColor="#FEFCEB" />
+                        <SortedAscendingHeaderStyle BackColor="#AF0101" />
+                        <SortedDescendingCellStyle BackColor="#F6F0C0" />
+                        <SortedDescendingHeaderStyle BackColor="#7E0000" />
                     </asp:GridView>
-                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:webLoginconn %>" SelectCommand="SELECT [Subject], [Content], [Class], [img], [Time] FROM [tb_Article] WHERE ([Author] = @Author)">
+                    <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:webLoginconn %>" SelectCommand="SELECT [Subject], [Content], [Class], [Time] FROM [tb_Article] WHERE ([Author] = @Author)">
                         <SelectParameters>
-                            <asp:Parameter DefaultValue="author" Name="Author" Type="String" />
+                            <asp:SessionParameter DefaultValue="UserName" Name="Author" SessionField="UserName" Type="String" />
                         </SelectParameters>
                     </asp:SqlDataSource>
 				

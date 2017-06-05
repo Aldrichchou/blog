@@ -10,17 +10,12 @@ public partial class BlogManage : System.Web.UI.Page
     string author;
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (Request.QueryString["name"] != "")
-        {
-            author = Request.QueryString["name"].ToString();
+            author = Session["UserName"].ToString();
             if (!IsPostBack)
             {
                 Response.Write("<script>alert('欢迎你!" + author + "');</script>");
             }
-        }
-
     }
-
 
     protected void Button1_Click(object sender, EventArgs e)
     {
@@ -68,6 +63,51 @@ public partial class BlogManage : System.Web.UI.Page
             {
                 Response.Write("<script>alert('上传出错!');</script>");
             }
+        }
+    }
+
+    protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+    {
+
+    }
+
+    //protected void DatashowBlog(object sender, EventArgs e)
+    //{
+    //    if (author != "")
+    //    {
+    //        string SqlSort =
+    //     "Select Subject,Content,BlogID,Time,Class from [tb_Article] where Author = '" + author + "'";
+    //    }
+    //}
+    //列表加载处理
+    protected void gv_showReport_RowDataBound(object sender, GridViewRowEventArgs e)
+    {
+
+        if (e.Row.RowType == DataControlRowType.DataRow)
+        {
+
+            //当鼠标移开时还原背景色
+            e.Row.Attributes.Add("onmouseout", "this.style.backgroundColor=c");
+            e.Row.Attributes.Add("onmouseover", "c=this.style.backgroundColor;this.style.backgroundColor='#F4FBFF'");
+            e.Row.Attributes.Add("onclick", "this.style.backgroundColor='#e2eaf1'");
+        }
+        if (e.Row.RowType == DataControlRowType.Header)
+        {
+            e.Row.Attributes.Add("style", "background-image:url('./img/编辑.png')");
+        }
+        if (e.Row.RowType == DataControlRowType.DataRow)
+        {
+            //设置申请原因字符串显示长度
+            string strDISC = e.Row.Cells[1].Text.Trim();
+            e.Row.Cells[4].Text = "<div class=/"listover150 / ">" + strDISC + "</div>";
+            e.Row.Cells[4].ToolTip = strDISC;//鼠标放上去显示所有
+
+            //设置审批备注字符串截取长度
+            string str = e.Row.Cells[1].Text.Trim();
+            e.Row.Cells[1].Text = "<div class=/"listover150 / ">" + str + "</div>";
+            e.Row.Cells[1].ToolTip = str;
+
+
         }
     }
 }
