@@ -1,4 +1,5 @@
-﻿using System;
+﻿using myGlobalSpace;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -25,6 +26,7 @@ public partial class ResignOrLogin : System.Web.UI.Page
                 string key = dbObj.ExecScalar(Sqlsort);
                 if (UserPw == key)
                 {
+                    Global.j = Global.j + 1;
                     string NameValue = UserName;
                     Application["Name"] = NameValue;
                     Response.Redirect("HomePage.aspx");

@@ -34,6 +34,9 @@
 
 <div id="section">
 <h1 class="auto-style2">最新博客</h1>
+    <p class="auto-style2">
+        <asp:TextBox ID="TextMessage" runat="server" BackColor="#993300" ForeColor="#FF9900" Height="16px" ReadOnly="True" style="position: relative" Width="254px" Wrap="False">您好</asp:TextBox>
+    </p>
 <p>
     &nbsp;&nbsp;&nbsp;
     <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CC9966" BorderStyle="None" BorderWidth="1px" CellPadding="4" DataKeyNames="ArticleID" DataSourceID="SqlDataSource2" OnSelectedIndexChanged="sic" AllowSorting="True" CssClass="auto-style1">

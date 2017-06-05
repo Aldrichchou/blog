@@ -24,16 +24,11 @@ public partial class HomePage : System.Web.UI.Page
     //页面事件触发
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (Application["Name"].ToString() != "" )
+        if (Application["Name"].ToString() != "" && Global.j == 1)
         {
-            //Global.j = Global.j - 1;
             username = Application["Name"].ToString();
-            TextMessage.Text = "欢迎"+username;
-            //Response.Write("<script>alert('欢迎你!" + username + "');</script>");
+            Response.Write("<script>alert('欢迎你!" + username + "');</script>");
         }
-        else
-            TextMessage.Text = "你好！";
-
     }
     protected void searchNews(object sender, ImageClickEventArgs e)
     {

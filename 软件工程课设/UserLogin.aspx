@@ -47,7 +47,7 @@
 </div>
 <div style="text-align: center;">
      &nbsp;&nbsp;&nbsp;&nbsp;
-     <asp:Button ID="ButtonUserLogin" runat="server" Text="登录" Width="162px" OnClick="User_Login" />
+     <asp:Button ID="ButtonUserLogin" runat="server" Text="登录" Width="162px" OnClick="User_Login" style="height: 21px" />
      <br />
 </div>
 
