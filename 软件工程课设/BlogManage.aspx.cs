@@ -82,32 +82,36 @@ public partial class BlogManage : System.Web.UI.Page
     //列表加载处理
     protected void gv_showReport_RowDataBound(object sender, GridViewRowEventArgs e)
     {
-
+       /*
+         *鼠标放到上面显示会显示完整信息 
+         */
+        //判定当前类型是否为数据行，如果是，则添加title
         if (e.Row.RowType == DataControlRowType.DataRow)
         {
-
-            //当鼠标移开时还原背景色
-            e.Row.Attributes.Add("onmouseout", "this.style.backgroundColor=c");
-            e.Row.Attributes.Add("onmouseover", "c=this.style.backgroundColor;this.style.backgroundColor='#F4FBFF'");
-            e.Row.Attributes.Add("onclick", "this.style.backgroundColor='#e2eaf1'");
+            //获取列数，进行循环添加title
+            for (int i = 0; i < e.Row.Cells.Count; i++)
+            {
+                //定义一个string类型变量用来存放每个单元格的内容
+                string temp = e.Row.Cells[i].Text;
+                //设置title为GridView的HeadText
+                e.Row.Cells[i].Attributes.Add("title", temp);//未截取长度    
+                                                             //判定temp的长度,
+                if (temp.Length > 20)
+                {
+                    //截取字符串
+                    temp = temp.Substring(0, 19) + "...";
+                }
+            }
         }
-        if (e.Row.RowType == DataControlRowType.Header)
-        {
-            e.Row.Attributes.Add("style", "background-image:url('./img/编辑.png')");
-        }
+        /*
+         *在界面上最多只显示50个字符
+         */
         if (e.Row.RowType == DataControlRowType.DataRow)
         {
-            //设置申请原因字符串显示长度
-            string strDISC = e.Row.Cells[1].Text.Trim();
-            e.Row.Cells[4].Text = "<div class=/"listover150 / ">" + strDISC + "</div>";
-            e.Row.Cells[4].ToolTip = strDISC;//鼠标放上去显示所有
-
-            //设置审批备注字符串截取长度
-            string str = e.Row.Cells[1].Text.Trim();
-            e.Row.Cells[1].Text = "<div class=/"listover150 / ">" + str + "</div>";
-            e.Row.Cells[1].ToolTip = str;
-
-
+            if (e.Row.Cells[1].Text.Length >= 50)//超过50个字符时就截取
+            {
+                e.Row.Cells[1].Text = e.Row.Cells[1].Text.Substring(0, 50) + ".....";
+            }
         }
     }
 }

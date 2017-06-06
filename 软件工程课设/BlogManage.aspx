@@ -19,6 +19,9 @@
           text-overflow:ellipsis;//超长设置省略号
           white-space:nowrap;
       }
+        .auto-style2 {
+            margin-left: 48px;
+        }
         </style>
 </head>
 <body style="background-image: url(../img/写博客.jpg); background-attachment: fixed; background-repeat:no-repeat;MARGIN:auto;background-position-x:center" > 
@@ -44,10 +47,10 @@
           <div id="about">
 				<div class="frame1">
 				
-                    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource3" Height="139px" Width="1261px" BackColor="White" BorderColor="#CC9966" BorderStyle="None" BorderWidth="1px" CellPadding="4" OnRowDataBound="gv_showReport_RowDataBound">
+                    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource3" Height="139px" Width="1261px" BackColor="White" BorderColor="#CC9966" BorderStyle="Solid" BorderWidth="1px" CellPadding="4" OnRowDataBound="gv_showReport_RowDataBound" CssClass="auto-style2">
                         <Columns>
 <asp:BoundField DataField="Subject" HeaderText="你的文章标题" SortExpression="Subject"></asp:BoundField>
-<asp:BoundField DataField="Content" HeaderText="你的文章内容" SortExpression="Content"></asp:BoundField>
+<asp:BoundField DataField="Content" HeaderText="你的文章内容" SortExpression="Content" ></asp:BoundField>
                             <asp:BoundField DataField="Class" HeaderText="你的文章类别" SortExpression="Class" />
                             <asp:BoundField DataField="Time" HeaderText="你的发布时间" SortExpression="Time" />
                         </Columns>
