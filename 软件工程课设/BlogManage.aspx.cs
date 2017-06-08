@@ -57,6 +57,7 @@ public partial class BlogManage : System.Web.UI.Page
             try
             {
                 dbObj.ExecNonQuery(SqlInsert);
+                GridView1.DataBind();
                 Response.Write("<script>alert('上传成功!');</script>");
             }
             catch (Exception ex)
@@ -113,5 +114,31 @@ public partial class BlogManage : System.Web.UI.Page
                 e.Row.Cells[1].Text = e.Row.Cells[1].Text.Substring(0, 50) + ".....";
             }
         }
+    }
+
+    protected void Gridview_RowDeleting(object sender, GridViewDeleteEventArgs e)
+    {
+        DBClass dbObj = new DBClass();
+        string subject = 
+            GridView1.DataKeys[e.RowIndex].Value.ToString();
+        string SqlDelete =
+            "DELETE FROM[tb_Article] WHERE Subject = '" + subject + "'";
+        SqlDataSource3.DeleteCommand = SqlDelete; 
+        dbObj.ExecNonQuery(SqlDelete);
+        //执行删除 
+        GridView1.DataBind();
+    }
+
+    protected void Gridview_RowUpdating(object sender, GridViewUpdateEventArgs e)
+    {
+        DBClass dbObj = new DBClass();
+        string subject =
+            GridView1.DataKeys[e.RowIndex].Value.ToString();
+        string SqlDelete =
+            "DELETE FROM[tb_Article] WHERE Subject = '" + subject + "'";
+        SqlDataSource3.DeleteCommand = SqlDelete;
+        dbObj.ExecNonQuery(SqlDelete);
+        //执行删除 
+        GridView1.DataBind();
     }
 }

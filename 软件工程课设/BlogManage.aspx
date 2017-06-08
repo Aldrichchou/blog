@@ -38,21 +38,13 @@
 						<a href="ManageLogin.aspx">后台登录</a>
 					</li>
 					<li>
-						<a href="HomePage.aspx">返回上一页</a>
-					</li>
-				</ul>
-			</div>
-			<span class="shadow"></span>
-		</div>
-          <div id="about">
-				<div class="frame1">
-				
-                    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource3" Height="139px" Width="1261px" BackColor="White" BorderColor="#CC9966" BorderStyle="Solid" BorderWidth="1px" CellPadding="4" OnRowDataBound="gv_showReport_RowDataBound" CssClass="auto-style2">
+						<a href="HomePage.aspx">返回上一页</a><asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource3" Height="139px" Width="1261px" BackColor="White" BorderColor="#CC9966" BorderStyle="Solid" BorderWidth="1px" CellPadding="4" OnRowDataBound="gv_showReport_RowDataBound" CssClass="auto-style2" DataKeyNames="Subject" OnRowDeleting="Gridview_RowDeleting" OnRowUpdating="Gridview_RowUpdating">
                         <Columns>
 <asp:BoundField DataField="Subject" HeaderText="你的文章标题" SortExpression="Subject"></asp:BoundField>
 <asp:BoundField DataField="Content" HeaderText="你的文章内容" SortExpression="Content" ></asp:BoundField>
                             <asp:BoundField DataField="Class" HeaderText="你的文章类别" SortExpression="Class" />
                             <asp:BoundField DataField="Time" HeaderText="你的发布时间" SortExpression="Time" />
+                            <asp:CommandField ShowDeleteButton="True" />
                         </Columns>
                         <FooterStyle BackColor="#FFFFCC" ForeColor="#330099" />
                         <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="#FFFFCC" />
@@ -64,7 +56,15 @@
                         <SortedDescendingCellStyle BackColor="#F6F0C0" />
                         <SortedDescendingHeaderStyle BackColor="#7E0000" />
                     </asp:GridView>
-                    <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:webLoginconn %>" SelectCommand="SELECT [Subject], [Content], [Class], [Time] FROM [tb_Article] WHERE ([Author] = @Author)">
+                    &nbsp;</li>
+				</ul>
+			</div>
+			<span class="shadow"></span>
+		</div>
+          <div id="about">
+				<div class="frame1">
+				
+                    <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:webLoginconn %>" SelectCommand="SELECT [Subject], [Content], [Class], [Time] FROM [tb_Article] WHERE ([Author] = @Author)" OnDeleting="GridView1_SelectedIndexChanged">
                         <SelectParameters>
                             <asp:SessionParameter DefaultValue="UserName" Name="Author" SessionField="UserName" Type="String" />
                         </SelectParameters>
