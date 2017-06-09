@@ -8,10 +8,7 @@
     <title>欢迎来到博客世界</title>
     <style type="text/css">
         .auto-style1 {
-            position: relative;
-            left: 371px;
-            top: 23px;
-
+            margin-left: 500px;
         }
         .auto-style2 {
             margin-left: 360px;
@@ -39,11 +36,14 @@
         .auto-style12 {
             width: 1233px;
         }
-        .auto-style13 {
-            margin-left: 26px;
-        }
         .auto-style14 {
             margin-left: 600px;
+        }
+        .auto-style15 {
+            margin-left: 243px;
+        }
+        .auto-style17 {
+            margin-left: 260px;
         }
         </style>
 </head>
@@ -75,11 +75,32 @@
                	<h4 align="center" class="auto-style12">博客详情</h4>
                 <p align="center">
                     <asp:Label ID="Label1" runat="server" Font-Size="Large" OnLoad="page_Load"  BackColor="White" Width="35%" BorderColor="#660033" BorderWidth="2px">&nbsp;</asp:Label>
+                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:webLoginconn %>" SelectCommand="SELECT [Time], [VisitorName], [Content], [Subject] FROM [tb_Revert] WHERE ([ArticleID] = @ArticleID) ORDER BY [Time] DESC">
+                        <SelectParameters>
+                            <asp:SessionParameter Name="ArticleID" SessionField="NEWSID" Type="Int32" />
+                        </SelectParameters>
+                    </asp:SqlDataSource>
                 </p>
+                <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CC9966" BorderStyle="None" BorderWidth="1px" CellPadding="4"  DataSourceID="SqlDataSource1" Height="100px" Width="400px" CssClass="auto-style1">
+                    <Columns>
+                        <asp:BoundField DataField="Content" HeaderText="评论内容" SortExpression="Content" />
+                        <asp:BoundField DataField="VisitorName" HeaderText="评论者" SortExpression="VisitorName" />
+                        <asp:BoundField DataField="Time" HeaderText="发布时间" SortExpression="Time" />
+                    </Columns>
+                    <FooterStyle BackColor="#FFFFCC" ForeColor="#330099" />
+                    <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="#FFFFCC" />
+                    <PagerStyle BackColor="#FFFFCC" ForeColor="#330099" HorizontalAlign="Center" />
+                    <RowStyle BackColor="White" ForeColor="#330099" />
+                    <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="#663399" />
+                    <SortedAscendingCellStyle BackColor="#FEFCEB" />
+                    <SortedAscendingHeaderStyle BackColor="#AF0101" />
+                    <SortedDescendingCellStyle BackColor="#F6F0C0" />
+                    <SortedDescendingHeaderStyle BackColor="#7E0000" />
+                </asp:GridView>
 				<ul>
 					<h4 class="auto-style2">请自由发表评论</h4>
-						<p>
-							<asp:TextBox ID="TextReview" runat="server" Width="267px" Height="126px" CssClass="auto-style1"></asp:TextBox>
+						<p class="auto-style15">
+							<asp:TextBox ID="TextReview" runat="server" Width="267px" Height="126px" CssClass="auto-style17"></asp:TextBox>
 						</p>
                         <p class="auto-style5">
                             &nbsp;</p>
@@ -91,8 +112,8 @@
                         <asp:TextBox ID="TextPw" runat="server" Width="174px" Height="22px" ></asp:TextBox> 
                     </div>
                    	<p class="auto-style14">
-                    <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="提交评论" CssClass="auto-style13" Width="119px" />
-                        &nbsp;</p>
+                        `&nbsp;<asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="提交评论" Width="147px" />
+                    </p>
 				</ul>
 			</div>
 		</div>

@@ -46,19 +46,28 @@ public partial class ManageUserPage : System.Web.UI.Page
         {
             if (userName != "" && userPw != "")
             {
+                if(userSex!="男" && userSex != "女" && userSex != "F" && userSex !="M")
+                {
+                    Response.Write("<script>alert('请添加正确的性别!');</script>");
+                    return;
+                }
+
                 string SqlInsert
                  = "INSERT INTO  [tb_Blog] (UserName,PassWord,Sex,ReallyName,Birthday,Address,PostCode,Email,HomePhone,MobilePhone,QQ,ICQ,RegTime,IP) VALUES('" + userName + "','" + userPw + "','" + userSex + "','" + userRealName + "','" + userBirthday + "','" + userAddr + "','" + userPostCode + "','" + useremail + "','" + userHomeP + "','" + userMobileP + "','" + userqq + "','" + userICQ + "','" + userRegtime + "','" + userip + "') ";
                 dbObj.ExecNonQuery(SqlInsert);
                 Response.Write("<script>alert('已经成功添加新博客!');</script>");
+                GridView1.DataBind();
             }
             else
             {
                 Response.Write("<script>alert('需要填写正确的密码和用户名!');</script>");
+                return;
             }
         }
         else
         {
             Response.Write("<script>alert('需要填写正确形式的注册时间!');</script>");
+            return;
         }
    /*
         string userName = TextUser.Text;
@@ -86,6 +95,6 @@ public partial class ManageUserPage : System.Web.UI.Page
                "DELETE  FROM [tb_Blog] WHERE UserName='" + userName+"'";
         dbObj.ExecNonQuery(SqlDeleteUser);
         Response.Write("<script>alert('成功删除用户!');</script>");
-
+        GridView1.DataBind();
     }
 }

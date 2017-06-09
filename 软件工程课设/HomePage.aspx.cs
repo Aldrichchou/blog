@@ -31,6 +31,10 @@ public partial class HomePage : System.Web.UI.Page
             TextMessage.Text = "欢迎"+username;
             //Response.Write("<script>alert('欢迎你!" + username + "');</script>");
         }
+        else  if(Session["UserHashKey"] != null)
+        {
+            TextMessage.Text = "欢迎" + Session["UserHashKey"].ToString();
+        }
         else
             TextMessage.Text = "你好！";
 
@@ -48,7 +52,8 @@ public partial class HomePage : System.Web.UI.Page
                 string Sqlsort =
                  "SELECT ArticleID  FROM [tb_Article] Where Subject = '" + Newskey + "'";
                 news_id = dbObj.ExecScalar(Sqlsort).ToString();
-                S_url = "Detailnews.aspx?name=" + news_id;
+               Session["NEWSID"] = int.Parse(news_id);
+               S_url = "Detailnews.aspx?name=" + news_id;
                 Response.Redirect(S_url);
              }
             catch (Exception ex)
@@ -64,6 +69,8 @@ public partial class HomePage : System.Web.UI.Page
 
     protected void sic(object sender, EventArgs e)
     {
+        Session["NEWSID"] =  
+           int.Parse(GridView1.SelectedRow.Cells[1].Text);
         string news_id;
         news_id = "Detailnews.aspx?name="
             + GridView1.SelectedRow.Cells[1].Text;
@@ -84,7 +91,6 @@ public partial class HomePage : System.Web.UI.Page
         }
         else
         {
-            Session["UserName"] = username;
             //获取当前行值某列的值
             Response.Redirect("BlogManage.aspx",false);
         }

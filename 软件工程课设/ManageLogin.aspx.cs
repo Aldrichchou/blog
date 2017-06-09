@@ -58,7 +58,7 @@ public partial class ManageLogin : System.Web.UI.Page
             if(managerPw == key)
             {
                 Session["UserHashKey"] = managerName;
-                Response.Redirect("HomePage.aspx");
+                Response.Redirect("ManagePage.aspx");
              }
             else
             {

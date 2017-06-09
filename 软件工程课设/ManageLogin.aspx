@@ -14,7 +14,8 @@
             margin-left: 13px;
         }
         .auto-style3 {
-            height: 657px;
+            height: 517px;
+            width: 446px;
         }
     </style>
 </head> 

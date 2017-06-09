@@ -44,7 +44,7 @@
     <form id="form1" runat="server">
     <div id="page">
 		<div id="header">
-            <a href="index.html" id="logo"><img src="\img\1D43DDCE017FF2EBD08672101B6_E1A04F29_1D30E.jpg" height="100" width="100" alt="LOGO"></a>
+            <a href="index.html" id="logo"><img src="\img\33.jpg" height="100" width="100" alt="LOGO"></a>
 			<div class="box">				
 				<ul id="navigation">
 					<li>
@@ -62,9 +62,6 @@
 		</div>
 		<div id="contents">
 			<div id="about">
-				<div class="frame1">
-					<img src="\img\2345截图20170520093454.png" alt="Img"/>
-				</div>
 				<ul>
 					<li>
 						<h4>编辑用户</h4>

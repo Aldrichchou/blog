@@ -61,6 +61,11 @@ public partial class Detailnews : System.Web.UI.Page
             try
                 {
             //此处用来实现将数据绑定到前台
+                if(user_name == "" || user_pw == "")
+            {
+                Response.Write("<script>alert('正确使用用户名及密码评论!');</script>");
+                return;
+            }
                   string Sqlsort =
                     " SELECT PassWord FROM [tb_Blog] Where UserName = '" + user_name + "' ";
                    string pw = dbObj.ExecScalar(Sqlsort);
@@ -71,13 +76,14 @@ public partial class Detailnews : System.Web.UI.Page
                     visitID = int.Parse(dbObj.ExecScalar(Sqlsort));
                     Sqlsort =
                     " SELECT max(RevertID) FROM [tb_Revert]";
-                int lastReviewID = 
+                   int lastReviewID = 
                         int.Parse(dbObj.ExecScalar(Sqlsort).ToString());
                     lastReviewID++;
                     string strYM = DateTime.Now.ToString();
                     string SqlInsert =
                    "INSERT INTO [tb_Revert] VALUES('" + lastReviewID + "','" + subject + "','" + reviewContent + "','" + Newskey + "','" + blogID + "','" + hostip + "','" + visitID + "','" + user_name + "','" + strYM + "')";
                     dbObj.ExecNonQuery(SqlInsert);
+                GridView1.DataBind();
                 Response.Write("<script>alert('成功添加评论!');</script>");
                 TextUser.Text = "";
                 TextPw.Text = "";
@@ -94,4 +100,5 @@ public partial class Detailnews : System.Web.UI.Page
         }
  //       }
     }
+
 }
