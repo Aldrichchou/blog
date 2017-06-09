@@ -79,6 +79,9 @@ public partial class Detailnews : System.Web.UI.Page
                    "INSERT INTO [tb_Revert] VALUES('" + lastReviewID + "','" + subject + "','" + reviewContent + "','" + Newskey + "','" + blogID + "','" + hostip + "','" + visitID + "','" + user_name + "','" + strYM + "')";
                     dbObj.ExecNonQuery(SqlInsert);
                 Response.Write("<script>alert('成功添加评论!');</script>");
+                TextUser.Text = "";
+                TextPw.Text = "";
+                TextReview.Text = "";
             }
             else
                 {

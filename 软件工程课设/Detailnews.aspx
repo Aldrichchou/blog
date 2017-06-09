@@ -47,7 +47,7 @@
         }
         </style>
 </head>
-<body align="center" style="color:#ff0000" background="/img/详情.gif">
+<body style="background-image: url(../img/详情.gif); background-repeat:no-repeat;MARGIN:auto;background-position-x:center" > 
     <form id="form1" runat="server">
     <div id="page">
 		<div id="header">
@@ -74,7 +74,7 @@
 				</div>
                	<h4 align="center" class="auto-style12">博客详情</h4>
                 <p align="center">
-                    <asp:Label ID="Label1" runat="server" Font-Size="Large" OnLoad="page_Load"  BackColor="White" Width="35%">&nbsp;</asp:Label>
+                    <asp:Label ID="Label1" runat="server" Font-Size="Large" OnLoad="page_Load"  BackColor="White" Width="35%" BorderColor="#660033" BorderWidth="2px">&nbsp;</asp:Label>
                 </p>
 				<ul>
 					<h4 class="auto-style2">请自由发表评论</h4>

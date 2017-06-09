@@ -37,8 +37,6 @@ public partial class ManageLogin : System.Web.UI.Page
         //获取用户密码
         string managerPw = TextPw.Text;
         #endregion
-
-
         try
         {
             //用户名验证
@@ -59,8 +57,8 @@ public partial class ManageLogin : System.Web.UI.Page
             string key = dbObj.ExecScalar(Sqlsort);
             if(managerPw == key)
             {
-                S_url = "ManagePage.aspx?name=" + managerName;
-                Response.Redirect(S_url);
+                Session["UserHashKey"] = managerName;
+                Response.Redirect("HomePage.aspx");
              }
             else
             {

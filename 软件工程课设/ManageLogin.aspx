@@ -49,7 +49,6 @@
      &nbsp;&nbsp;&nbsp;&nbsp;
      <asp:Button ID="ButtonManagerLogin" runat="server" Text="登录后台管理" Width="162px" OnClick="Manager_Login" />
      <br />
-     <asp:Label ID="Tip" runat="server"></asp:Label>
 </div>
 
 </form>
