@@ -61,7 +61,12 @@ public partial class Detailnews : System.Web.UI.Page
             try
                 {
             //此处用来实现将数据绑定到前台
-                if(user_name == "" || user_pw == "")
+            if(Session["Name"]!=null && Session["PW"] != null)
+            {
+                user_name = Session["Name"].ToString();
+                user_pw = Session["PW"].ToString();
+            }
+            else if(user_name == "" || user_pw == "")
             {
                 Response.Write("<script>alert('正确使用用户名及密码评论!');</script>");
                 return;

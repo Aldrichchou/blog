@@ -10,14 +10,17 @@ public partial class BlogManage : System.Web.UI.Page
     string author;
     protected void Page_Load(object sender, EventArgs e)
     {
-            author = Session["UserName"].ToString();
-            if (!IsPostBack)
-            {
-                Response.Write("<script>alert('欢迎你!" + author + "');</script>");
-            }
+        if (Session["Name"] != null)
+        {
+            author = Session["Name"].ToString();
+        }
+        if (!IsPostBack)
+        {
+            Response.Write("<script>alert('欢迎你!" + author + "');</script>");
+        }
     }
 
-    protected void Button1_Click(object sender, EventArgs e)
+     protected void Button1_Click(object sender, EventArgs e)
     {
         DBClass dbObj = new DBClass();
         string newsContent = Textnewacontent.Text;
@@ -27,7 +30,7 @@ public partial class BlogManage : System.Web.UI.Page
             "SELECT BlogID FROM [tb_Blog] WHERE UserName = '" + author + "'";
         BlogID = int.Parse(dbObj.ExecScalar(Sqlsort).ToString());
         Sqlsort =
-        "SELECT max(ArticleID) FROM [tb_Article]";
+            "SELECT max(ArticleID) FROM [tb_Article]";
         int lastReviewID =
             int.Parse(dbObj.ExecScalar(Sqlsort));
         lastReviewID++;

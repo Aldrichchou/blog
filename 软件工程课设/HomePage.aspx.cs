@@ -24,20 +24,15 @@ public partial class HomePage : System.Web.UI.Page
     //页面事件触发
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (Application["Name"].ToString() != "" )
-        {
-            //Global.j = Global.j - 1;
-            username = Application["Name"].ToString();
-            TextMessage.Text = "欢迎"+username;
-            //Response.Write("<script>alert('欢迎你!" + username + "');</script>");
-        }
-        else  if(Session["UserHashKey"] != null)
-        {
-            TextMessage.Text = "欢迎" + Session["UserHashKey"].ToString();
-        }
-        else
-            TextMessage.Text = "你好！";
-
+            if(Session["Name"] != null)
+            {
+                //Global.j = Global.j - 1;
+                username = Session["Name"].ToString();
+                TextMessage.Text = "欢迎" + username;
+                //Response.Write("<script>alert('欢迎你!" + username + "');</script>");
+            }
+           else
+                TextMessage.Text = "你好！";
     }
     protected void searchNews(object sender, ImageClickEventArgs e)
     {
@@ -64,7 +59,24 @@ public partial class HomePage : System.Web.UI.Page
 
     protected void ButtonClick_manage(object sender, ImageClickEventArgs e)
     {
-        Response.Redirect("ManageLogin.aspx", false);
+        string username = "";
+        string userpw = "";
+        if (Session["Name"] != null && Session["PW"] != null)
+        {
+            username = Session["Name"].ToString();
+            userpw = Session["PW"].ToString();
+        }
+        string SqlSort =
+            "Select Password from tb_admin where UserName ='"+username+"'";
+        string key = dbObj.ExecScalar(SqlSort);
+        if(key != userpw)
+        {
+            Response.Redirect("ManageLogin.aspx", false);
+        }
+        else
+        {
+            Response.Redirect("ManagePage.aspx", false);
+        }
     }
 
     protected void sic(object sender, EventArgs e)
@@ -94,5 +106,17 @@ public partial class HomePage : System.Web.UI.Page
             //获取当前行值某列的值
             Response.Redirect("BlogManage.aspx",false);
         }
+    }
+
+    protected void Blog_Exit(object sender, ImageClickEventArgs e)
+    {
+        #region 初始化用户Session变量
+        Session["Name"] = null;
+        Session["PW"] = null;
+        Session["NEWSID"] = null;
+        #endregion
+
+        Response.Write("<script>alert('你已成功退出账户!');</script>");
+        return;
     }
 }

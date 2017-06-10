@@ -68,21 +68,21 @@
 						<p>
 							<asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CC9966" BorderStyle="None" BorderWidth="1px" CellPadding="4" DataKeyNames="BlogID" DataSourceID="SqlDataSource2" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
                                 <Columns>
-                                    <asp:BoundField DataField="BlogID" HeaderText="BlogID" ReadOnly="True" SortExpression="BlogID" InsertVisible="False" />
-                                    <asp:BoundField DataField="UserName" HeaderText="UserName" SortExpression="UserName" />
-                                    <asp:BoundField DataField="PassWord" HeaderText="PassWord" SortExpression="PassWord" />
-                                    <asp:BoundField DataField="Sex" HeaderText="Sex" SortExpression="Sex" />
-                                    <asp:BoundField DataField="ReallyName" HeaderText="ReallyName" SortExpression="ReallyName" />
-                                    <asp:BoundField DataField="Birthday" HeaderText="Birthday" SortExpression="Birthday" />
-                                    <asp:BoundField DataField="Address" HeaderText="Address" SortExpression="Address" />
-                                    <asp:BoundField DataField="PostCode" HeaderText="PostCode" SortExpression="PostCode" />
+                                    <asp:BoundField DataField="BlogID" HeaderText="博客ID" ReadOnly="True" SortExpression="BlogID" InsertVisible="False" />
+                                    <asp:BoundField DataField="UserName" HeaderText="博客用户名" SortExpression="UserName" />
+                                    <asp:BoundField DataField="PassWord" HeaderText="密码" SortExpression="PassWord" />
+                                    <asp:BoundField DataField="Sex" HeaderText="性别" SortExpression="Sex" />
+                                    <asp:BoundField DataField="ReallyName" HeaderText="真实姓名" SortExpression="ReallyName" />
+                                    <asp:BoundField DataField="Birthday" HeaderText="生日" SortExpression="Birthday" />
+                                    <asp:BoundField DataField="Address" HeaderText="地址" SortExpression="Address" />
+                                    <asp:BoundField DataField="PostCode" HeaderText="邮编" SortExpression="PostCode" />
                                     <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" />
-                                    <asp:BoundField DataField="HomePhone" HeaderText="HomePhone" SortExpression="HomePhone" />
-                                    <asp:BoundField DataField="MobilePhone" HeaderText="MobilePhone" SortExpression="MobilePhone" />
+                                    <asp:BoundField DataField="HomePhone" HeaderText="固话" SortExpression="HomePhone" />
+                                    <asp:BoundField DataField="MobilePhone" HeaderText="动话" SortExpression="MobilePhone" />
                                     <asp:BoundField DataField="QQ" HeaderText="QQ" SortExpression="QQ" />
                                     <asp:BoundField DataField="ICQ" HeaderText="ICQ" SortExpression="ICQ" />
-                                    <asp:BoundField DataField="RegTime" HeaderText="RegTime" SortExpression="RegTime" />
-                                    <asp:BoundField DataField="IP" HeaderText="IP" SortExpression="IP" />
+                                    <asp:BoundField DataField="RegTime" HeaderText="发布时间" SortExpression="RegTime" />
+                                    <asp:BoundField DataField="IP" HeaderText="IP地址" SortExpression="IP" />
                                 </Columns>
                                 <FooterStyle BackColor="#FFFFCC" ForeColor="#330099" />
                                 <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="#FFFFCC" />

@@ -84,19 +84,10 @@
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
                             <asp:Button ID="ButtonDeleteUser" runat="server" CssClass="auto-style8" Text="删除该评论" Width="163px" Height="25px" OnClick="Deletereview" />
 						</p>
-                           <p>
-                            &nbsp;&nbsp;
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					</li>
 						</ul>
 			</div>
 		</div>
-		<div id="footer">
-			<asp:TextBox ID="TextException" runat="server" Width="298px"></asp:TextBox>
-			<span class="shadow"></span>
-		
-	</div>
 	</div>
         </form>
     </body>

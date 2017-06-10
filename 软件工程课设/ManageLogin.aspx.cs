@@ -57,7 +57,8 @@ public partial class ManageLogin : System.Web.UI.Page
             string key = dbObj.ExecScalar(Sqlsort);
             if(managerPw == key)
             {
-                Session["UserHashKey"] = managerName;
+                Session["Name"] = managerName;
+                Session["PW"] = key;
                 Response.Redirect("ManagePage.aspx");
              }
             else

@@ -28,7 +28,8 @@ public partial class ResignOrLogin : System.Web.UI.Page
                 {
                     //Global.j = Global.j + 1;
                     string NameValue = UserName;
-                    Application["Name"] = NameValue;
+                     Session["Name"] = NameValue;
+                    Session["PW"] = key;
                     Response.Redirect("HomePage.aspx");
                     //S_url = "ManagePage.aspx?name=" + USERNAME;
                     //Response.Redirect(S_url);

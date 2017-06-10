@@ -73,8 +73,8 @@
     <asp:ImageButton ID="ImageBlog" runat="server" Height="40px" Width="73px" ImageUrl="~/img/博客.png" OnClick="Blog_Manage" />
     <asp:Label ID="Label3" runat="server" BorderColor="#FF3300" BorderStyle="Solid" ForeColor="#663300" Text="博客"></asp:Label>
 
-    <asp:ImageButton ID="ImageBlog0" runat="server" Height="40px" Width="73px" ImageUrl="~/img/博客.png" OnClick="Blog_Manage" />
-    <asp:Label ID="Label4" runat="server" BorderColor="#FF3300" BorderStyle="Solid" ForeColor="#663300" Text="博客"></asp:Label>
+    <asp:ImageButton ID="ImageBlog0" runat="server" Height="40px" Width="73px" ImageUrl="~/img/退出.png" OnClick="Blog_Exit" />
+    <asp:Label ID="Label4" runat="server" BorderColor="#FF3300" BorderStyle="Solid" ForeColor="#663300" Text="退出当前账号"></asp:Label>
 
 </div>
 </div>
